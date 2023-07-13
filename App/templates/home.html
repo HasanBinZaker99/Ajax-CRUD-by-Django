@@ -1,0 +1,67 @@
+{% extends 'base.html' %}
+<!-- Navbar Content -->
+{% block navbar-content %}
+<i style="color:yellowgreen;" class="fas fa-user-alt"></i>&nbsp;&nbsp; Employee List
+{% endblock navbar-content %}
+<!-- Page Content -->
+{% block content %}
+<div class="container">
+    <br><br><br>
+    <table class="table table-bordered" id="example" style="text-align: center;">
+        <thead class="table-success">
+            <tr>
+                <th style="width: 10%;">Id</th>
+                <th style="width: 20%;">Name</th>
+                <th style="width: 20%;">Email</th>
+                <th style="width: 20%;">Occupation</th>
+                <th style="width: 15%;">Salary</th>
+                <th style="width: 15%;">Gender</th>
+                <th style="width: 15%;">Registered</th>
+                <th style="width: 15%;">Edit</th>
+                <th style="width: 15%;">Delete</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for employee in employees %}
+
+            <tr>
+                <td>{{ employee.id}}</td>
+                <td>{{ employee.name}}</td>
+                <td>{{ employee.email}}</td>
+                <td>{{ employee.occupation}}</td>
+                <td>{{ employee.salary}}</td>
+                <td>{{ employee.gender}}</td>
+                <td>{{ employee.created_at | date:'m/d/Y (H:i)'}}</td>
+                <td>
+                    <a class="btn btn-success text-center" title="Edit employee">
+                        <i class="fas fa-pen"></i>
+                    </a>
+                </td>
+                <td>
+                    <a class="btn btn-success text-center" title="Delete employee">
+                        <i class="fas fa-trash-alt"></i>
+                    </a>
+                </td>
+
+            </tr>
+            {% endfor %}
+        </tbody>
+
+        <!-- JSON Response from backend -->
+
+    </table>
+    <br>
+    <hr>
+</div>
+
+{% for message in messages %}
+{% if message.tags == 'success' %}
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+<script>
+    var m = "{{ message }}";
+    swal("perfect !", m, "success")
+</script>
+{% endif %}
+{% endfor %}
+<br><br><br>
+{% endblock content %}

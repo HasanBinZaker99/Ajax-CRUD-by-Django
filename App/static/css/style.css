@@ -1,0 +1,76 @@
+html,
+body{
+    height: 100%;
+    margin:0;
+    max-width: 100%;
+}
+
+.wrapper {
+    min-height: 100%;
+    margin-bottom:  -50px;
+}
+#footer,
+.push{
+    height: 50px;
+}
+
+/* Input Search */
+.dataTables_filter{
+    margin-bottom: 10px !important;
+    display: none !important;
+}
+/* Show entries */
+.dataTables_length{
+    float:right !important;
+    margin-top:10px !important;
+}
+/* Group Buttons */
+.dt-buttons{
+    margin-bottom: 10px !important;
+}
+thead input{
+    width: 100%;
+    text-align: center;
+}
+
+.side-label{
+    width: 45px;
+}
+
+ /* SweetAlert Customized */
+ .swal-modal{
+    background-color: rgba(0,0,0,0.651);
+    color:#fff;
+ }
+ .swal-title{
+    color:#fff;
+    font-size: 20px;
+ }
+ .swal-text{
+    color:#fff;
+    font-size: 15px;
+ }
+ /* Button */
+ .swal-button{
+    padding: 7px 19px;
+    border-radius: 5px;
+    background-color: #198754;
+    font-size: 12px;
+    border:1px solid #198754;
+ }
+ .swal-button:focus{
+    box-shadow: none;
+ }
+ .swal-button:not([disabled]):hover{
+    background: transparent;
+    color:#fff;
+    border:1px solid #198754;
+ }
+ /* Icons */
+ .swal-icon--success__hide-corners{
+    background: none !important;
+ }
+ .swal-icon--success:before,
+ .swal-icon--success:after{
+    background: none !important;
+ }

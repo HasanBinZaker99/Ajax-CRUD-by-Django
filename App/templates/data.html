@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+
+<!-- Navbar Content -->
+{% block navbar-content %} 
+<!-- <i style="color:yellowgreen;" class="fas fa-user-alt"></i>&nbsp;&nbsp; Employee List -->
+{% endblock navbar-content %}
+<!-- Page Content -->
+{% block content %} 
+<div class="container">
+    <br><br><br>
+    <table class="table table-bordered" id ="example" style="text-align: center;">
+        <thead class="table-success">
+        <tr>
+            <th>date</th>
+            <th>trade_code</th>
+            <th>high</th>
+            <th>low</th>
+            <th>open</th>
+            <th>close</th>
+            <th>volume</th>
+        </tr>
+        </thead>
+        <!-- Data from backend -->
+        {% for data in data %}
+        <tr>
+            <td>{{ data.date }}</td>
+            <td>{{ data.trade_code }}</td>
+            <td>{{ data.high }}</td>
+            <td>{{ data.low }}</td>
+            <td>{{ data.open }}</td>
+            <td>{{ data.close }}</td>
+            <td>{{ data.volume }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+</div>
+<br><br><br>
+{% endblock content %}
