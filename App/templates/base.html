@@ -113,26 +113,30 @@
                 //     },
                 // ],
                 paging: true,
-                pageLength: 9,
+                pageLength: 8,
                 lengthChange: true,
                 autoWidth: false,
                 searching: true,
                 bInfo: true,
                 bSort: true,
-                order: [], // Disable Order By
-
+                order: [], // Disable Order By,
+                orderCellsTop: true, // Put the Filter A to Z and Z to A on TOP (first Thead)
+                scrollX: true,
+                fixedHeader: true,
+                // scrollCollapse: true,
+                // scrollX: true,
                 // Disable columns with specific filter A to Z, Z to A
-                // "columnDefs":[{   // Salary and gender er pasher arrow sign vanished
-                //     "targets": 5, // For 1 column
-                //     "targets":[4,5], // For more column
-                //     "orderable":false
-                // }]
+                 "columnDefs":[{   // Edit and Delete er pasher arrow sign vanished
+                    // "targets": 5, // For 1 column
+                     "targets":[7,8], // For more column
+                     "orderable":false
+                 }],
 
                 initComplete: function () {
                     var api = this.api();
                     // Set the columns you with filtering
                     api
-                        .columns([0, 1, 2, 3, 4, 5])
+                        .columns([0, 1, 2, 3, 4, 5,6])
                         .eq(0)
                         .each(function (colIdx) {
                             var cell = $('.filters th').eq(

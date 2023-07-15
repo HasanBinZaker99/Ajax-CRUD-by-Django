@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 """Django's command-line utility for administrative tasks."""
-# 24.48s
+# 1.44.40s
 import os
 import sys
 

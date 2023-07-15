@@ -48,12 +48,12 @@ def edit_employee(request):
     if request.method == "POST":
         employee = Employee.objects.get(id = request.POST.get('id'))
         if employee != None:
-            employee.name = request.POSST.get('name')
-            employee.email = request.POSST.get('email')
-            employee.occupation = request.POSST.get('occupation')
-            employee.salary = request.POSST.get('salary')
-            employee.gender = request.POSST.get('gender')
-            employee.note = request.POSST.get('note')
+            employee.name = request.POST.get('name')
+            employee.email = request.POST.get('email')
+            employee.occupation = request.POST.get('occupation')
+            employee.salary = request.POST.get('salary')
+            employee.gender = request.POST.get('gender')
+            employee.note = request.POST.get('note')
             employee.save()
             messages.success(request,"Employee Updated Successfully !")
             return HttpResponseRedirect("/")
