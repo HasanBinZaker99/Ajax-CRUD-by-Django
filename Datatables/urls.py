@@ -15,5 +15,9 @@ urlpatterns = [
     # Path to Edit Employee
     path('edit_employee',views.edit_employee,name='edit_employee'),
     # Path to Delete Employee 
-    path('delete_employee/<str:employee_id>',views.delete_employee,name='delete_employee')
+    path('delete_employee/<str:employee_id>',views.delete_employee,name='delete_employee'),
+    # =========== Login / Logout =========|
+    path('login/',views.Login, name="login"),
+    path('login_user',views.LoginUser, name="login_user"),
+    path('logout/',views.LogoutUser, name="logout"),
 ]

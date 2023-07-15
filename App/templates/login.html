@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+
+
+<!-- Title on tab -->
+{% block title %} Login {% endblock title %}
+{% block nav-btn %}{% endblock nav-btn %}
+
+<!-- Block navbar content -->
+{% block navbar-content %}
+<div class="contaiter">
+    <div class="mx-auto" style="width: 30%;">
+        <i style="color:yellowgreen;" class="fas fa-user-lock"></i>&nbsp;&nbsp; Login
+    </div>
+</div>
+{% endblock navbar-content %}
+<!-- Page Content -->
+{% block content %}
+<div class="contaiter mt-5" id="card-login">
+    <div class="card p-3 login-border mx-auto" style="width: 29%;">
+        <span class="text-center mt-3 text-pulse"><strong>RESTRICTED ACCESS</strong></span>
+        <form method="POST" action="/login_user" autocomplete="off">
+            {% csrf_token %}
+            <div class="input-group mb-2 mt-4">
+                <input type="text" class="form-control" name="username" placeholder="Username">
+            </div>
+            <div class="input-group mb-2">
+                <input type="password" class="form-control" id="password" name="password" placeholder="Password ">
+            </div>
+            <div class="form-check form-switch">
+                <input type="checkbox" class="form-check-input" onclick="myFunction()" style="float:right;">
+            </div>
+            <div>
+                <input class="btn btn-success btn-sm mt-4 mb-3" type="submit" value="Enter" id="btn-enter">
+            </div>
+        </form>
+        <center class="mt-5 mb-5">
+            <i class="fas fa-globe mt-4 mb-4" style="color:#d3d3d3;font-size: 120px;"></i>
+        </center>
+
+
+
+
+
+
+    </div>
+</div>
+{% endblock content %}

@@ -4,6 +4,14 @@ from django.http import JsonResponse
 from django.http import HttpResponseRedirect
 from django.contrib import messages
 
+# More imports (login/logout)
+from django.contrib.auth import authenticate,login,logout
+from django.contrib.auth.decorators import login_required
+from django.views.decorators.cache import cache_control
+# Function to render the page with all products
+@login_required(login_url="/login/")
+@cache_control(no_cache=True,must_revalidate=True,no_store = True)
+
 # Function to render Homepage
 def home(request):
     employ_list = Employee.objects.all().order_by('-created_at')
@@ -73,4 +81,29 @@ def show_data(request):
 
     # return JsonResponse(data,safe=False)
     return render(request,"data.html",{"data":data})
+
+# Login Function
+def Login(request):
+    if request.user == None or request.user == "" or request.user.username == "":
+        return render(request,"login.html")
+    else:
+        return HttpResponseRedirect('/')
+# Login User
+def LoginUser(request):
+    if request.method == "POST":
+        username = request.POST.get('username')
+        password = request.POST.get('password')
+        user = authenticate(username = username,password = password)
+        if user != None:
+            login(request,user)
+            return HttpResponseRedirect('/')
+        else:
+            messages.error(request,"Enter your data correctly")
+            return HttpResponseRedirect('/')
+        
+# Logout Function
+def LogoutUser(request):
+    logout(request)
+    request.user = None
+    return HttpResponseRedirect('/')
 
